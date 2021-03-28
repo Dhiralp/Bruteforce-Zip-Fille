@@ -14,7 +14,6 @@ parsed_args = parser.parse_args()
 
 try:
     ziparchive = ZipFile(parsed_args.ziparchive)
-    print(ziparchive)
     passfile = parsed_args.passfile
     foundpass = ""
     
