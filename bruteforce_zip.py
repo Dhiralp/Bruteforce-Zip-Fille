@@ -14,6 +14,7 @@ parsed_args = parser.parse_args()
 
 try:
     ziparchive = ZipFile(parsed_args.ziparchive)
+    print(ziparchive)
     passfile = parsed_args.passfile
     foundpass = ""
     
@@ -28,9 +29,10 @@ with open(passfile,"r") as f:
         password = password.encode("utf-8")
         
         try:
-            foundpass = ziparchive.extractall(pwd=password)
+            foundpass = ziparchive.extractall(pwd=password)            
             if foundpass==None:
                 print("Found Password : ",password.decode())
+                break
                 
         except RuntimeError:
             pass
